@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    a, button, input, select, h1, h2, h3, h4, h5, * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      border: none;
+      text-decoration: none;
+      background: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      background-color: #ffffff;
+    }
+    .bg-form {
+      background-color: #f2f3f2;
+      border-radius: 50px;
+      padding: 18px 34px;
+    }
+    .rounded-pill-xl {
+      border-radius: 1000px !important;
+    }
+    .tab-btn {
+      border-radius: 1000px;
+      height: 50px;
+      width: 270px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tab-btn.active {
+      background-color: #ffffff;
+      color: #0a0e18;
+      font-weight: 700;
+    }
+    .tab-btn.inactive {
+      background: none;
+      color: #9ca3af;
+      font-weight: 500;
+    }
+    .register-btn {
+      background-color: #183b32;
+      color: #ffffff;
+      border-radius: 1000px;
+      height: 68px;
+      font-weight: 700;
+      font-size: 15.8px;
+    }
+    .custom-checkbox {
+      width: 27px;
+      height: 27px;
+      background-color: #19232c;
+      border-radius: 100%;
+      position: relative;
+    }
+    .custom-checkbox::after {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 5px;
+      width: 7px;
+      height: 14px;
+      border-right: 3px solid #fff;
+      border-bottom: 3px solid #fff;
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="d-flex flex-wrap" style="min-height: 100vh; overflow: hidden;">
+    <!-- Левая часть с изображением -->
+    <div class="col-12 col-md-6 p-0">
+      <img src="image-20.png" alt="background" class="img-fluid w-100 h-100" style="object-fit: cover;">
+    </div>
+
+    <!-- Правая часть с формой -->
+    <div class="col-12 col-md-6 d-flex align-items-center justify-content-center bg-white p-5">
+      <div class="w-100" style="max-width: 570px;">
+        <!-- Вкладки -->
+        <div class="bg-light rounded-pill p-2 mb-5 d-flex justify-content-between">
+          <div class="tab-btn active">Регистрация</div>
+          <div class="tab-btn inactive">Авторизация</div>
+        </div>
+
+        <!-- Поля формы -->
+        <form>
+          <div class="mb-4">
+            <label class="form-label text-secondary ms-3">Ваше имя</label>
+            <div class="bg-form">
+              <input class="fw-bold text-dark">
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label text-secondary ms-3">Email-адрес</label>
+            <div class="bg-form">
+              <input class="fw-bold text-dark">
+            </div>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="form-label text-secondary ms-3">Пароль</label>
+              <div class="bg-form">
+                <input class="fw-bold text-dark">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label text-secondary ms-3">Повторите пароль</label>
+              <div class="bg-form">
+                <input class="fw-bold text-dark">
+              </div>
+            </div>
+          </div>
+
+          <!-- Кнопка регистрации -->
+          <div class="d-grid mb-4">
+            <button type="submit" class="btn register-btn">Зарегистрироваться</button>
+          </div>
+
+          <!-- Чекбокс -->
+          <div class="d-flex align-items-center gap-3">
+            <div class="custom-checkbox"></div>
+            <div class="text-secondary" style="font-size: 13px; letter-spacing: -0.27px;">
+              Я ознакомился с политикой конфиденциальности и даю согласие на обработку персональных данных
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
