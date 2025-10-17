@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Readlyst — адаптив</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com/3.2.0"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          container: { center: true, padding: '1rem' },
+          colors: {
+            ink:'#0f172a', ink50:'rgba(15,23,42,.5)', ink75:'rgba(15,23,42,.75)',
+            green:'#183b32', muted:'#5a617c', card1:'#a65840', card2:'#ff291d'
+          },
+          borderRadius: { pill:'9999rem' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Базовый reset + небольшая типографика -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{font-size:16px}
+    body{margin:0;background:#fff;color:#0f172a;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    /* адаптивный h1 без плагинов */
+    .text-fluid-hero{font-size:clamp(1.75rem, 1.2rem + 3vw, 5.1rem); line-height:1}
+    /* тень карточек */
+    .shadow-soft{ box-shadow: 0 .5rem 1rem rgba(0,0,0,.04), 0 1rem 2rem rgba(0,0,0,.12); }
+  </style>
+</head>
+<body class="min-h-screen">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-white shadow-[0_0_1.875rem_rgba(0,0,0,.05)]">
+    <div class="container max-w-screen-2xl">
+      <div class="flex items-center gap-3 py-3 md:py-4">
+        <div class="flex items-center gap-2">
+          <img src="product-icons1.svg" alt="" class="w-[2.165rem] h-[2.165rem]">
+          <div class="font-bold tracking-tight" style="font-size:1.47rem">Readlyst</div>
+        </div>
+
+        <button class="ml-2 bg-ink text-white rounded-pill h-11 px-3 font-bold text-sm flex items-center gap-2">
+          <img src="frame-2131330034-10.svg" class="w-4 h-4" alt="">
+          Каталог
+        </button>
+
+        <div class="hidden md:flex flex-1 items-center bg-[#f2f3f2] rounded-pill h-11 px-4 gap-2">
+          <img src="vector0.svg" class="w-4 h-4" alt="">
+          <span class="text-ink/80 text-sm">Поиск…</span>
+        </div>
+
+        <div class="ml-auto flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-[#c5c5c5] grid place-items-center text-white font-medium">П</div>
+          <div class="leading-tight">
+            <div class="font-bold text-sm text-ink">Полина. З</div>
+            <button class="text-[#ff6b86] text-sm font-semibold">Выйти</button>
+          </div>
+        </div>
+      </div>
+      <!-- mobile search -->
+      <div class="md:hidden pb-3">
+        <div class="flex items-center bg-[#f2f3f2] rounded-pill h-11 px-4 gap-2">
+          <img src="vector0.svg" class="w-4 h-4" alt=""><span class="text-ink/80 text-sm">Поиск…</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pb-16">
+    <div class="container max-w-screen-2xl">
+
+      <!-- HERO / карточка книги -->
+      <section class="mt-8 grid lg:grid-cols-12 gap-8">
+        <!-- Превью -->
+        <div class="lg:col-span-4">
+          <div class="rounded-2xl overflow-hidden shadow-soft bg-white">
+            <div class="[aspect-ratio:2/3] relative">
+              <img src="picture0.png" alt="" class="absolute inset-0 w-full h-full object-cover">
+              <img src="_30-300.png" alt="" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+          </div>
+        </div>
+
+        <!-- Метаданные -->
+        <div class="lg:col-span-8 flex flex-col gap-6">
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap items-center gap-3 text-sm">
+              <div class="flex items-center gap-1">
+                <img src="mask-group0.svg" class="w-5 h-5" alt="">
+                <span class="font-medium text-ink">4,80</span>
+              </div>
+              <button class="text-[#4e95ff]">136 отзывов</button>
+            </div>
+
+            <div>
+              <h1 class="text-fluid-hero font-bold tracking-tight">30 привычек за 30 дней</h1>
+              <div class="mt-2 flex flex-wrap items-center gap-2 text-base">
+                <span class="text-muted">авторы</span>
+                <button class="text-[#4e95ff]">Матильда Старр,</button>
+                <button class="text-[#4e95ff]">Мира Славная</button>
+                <span class="ml-3 inline-flex items-center rounded border border-[#afb2bf80] text-[#afb2bf] px-2 py-0.5 text-sm">18+</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <div class="font-bold text-lg">О книге</div>
+            <p class="text-ink75 text-base leading-relaxed">
+              Быть ведьмой не так уж и плохо… Приятно ощущать себя особенной, уникальной, избранной… 
+              <button class="align-baseline text-[#3d3dc7] ml-1">Далее</button>
+            </p>
+            <button class="inline-flex items-center gap-2 text-muted">
+              <img src="mask-group1.svg" class="w-4 h-4" alt=""> Смотреть оглавление
+            </button>
+          </div>
+
+          <div class="flex flex-col gap-4">
+            <div class="font-bold text-lg">Жанры и теги</div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-2 rounded-full bg-[#4e95ff26] text-[#4e95ff] text-xs font-semibold">#Ведьмы</span>
+              <span class="px-3 py-2 rounded-full bg-[#4e95ff26] text-[#4e95ff] text-xs font-semibold">#Городское фэнтези</span>
+              <span class="px-3 py-2 rounded-full bg-[#4e95ff26] text-[#4e95ff] text-xs font-semibold">#Ироничная проза</span>
+              <span class="px-3 py-2 rounded-full bg-[#4e95ff26] text-[#4e95ff] text-xs font-semibold">#Любовное фэнтези</span>
+              <span class="px-3 py-2 rounded-full bg-[#4e95ff26] text-[#4e95ff] text-xs font-semibold">#Опасные приключения</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- С этой книгой читают -->
+      <section class="mt-12">
+        <h2 class="text-2xl md:text-[1.41rem] font-bold tracking-tight mb-6">С этой книгой читают</h2>
+
+        <!-- На мобайле — горизонтальная лента, на ноутбуке — сетка -->
+        <div class="md:hidden -mx-4 px-4 overflow-x-auto">
+          <div class="flex gap-4">
+            <!-- Карточка -->
+            <article class="w-[11.5rem] flex flex-col gap-3">
+              <div class="relative rounded-xl overflow-hidden bg-card2">
+                <div class="[aspect-ratio:2/3] relative">
+                  <img src="div14.png" class="absolute inset-0 w-full h-full object-cover" alt="">
+                </div>
+                <div class="absolute inset-0 bg-ink/5"></div>
+                <div class="absolute left-2 top-3 bg-ink50/100 backdrop-blur-sm text-white text-sm px-4 py-1 rounded-full flex items-center gap-1">
+                  <img src="mask-group2.svg" class="w-4 h-4" alt=""> 5,44
+                </div>
+              </div>
+              <div>
+                <div class="font-bold text-[.99rem] leading-[1.41rem] truncate">30 привычек за 30 дне...</div>
+                <div class="text-muted text-[.845rem] leading-4">Алекс Ключевской<br>(Лёха) и др.</div>
+              </div>
+              <div class="flex items-center gap-3">
+                <button class="bg-green text-white h-[1.975rem] px-3 rounded-[27.06px] text-[.845rem] font-semibold">Читать</button>
+                <span class="text-[#afb2bf] text-sm border border-[#afb2bf80] rounded px-2 py-0.5">18+</span>
+              </div>
+            </article>
+
+            <!-- дублируй карточки по образцу -->
+          </div>
+        </div>
+
+        <!-- GRID для ноутбуков -->
+        <div class="hidden md:grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-4">
+          <!-- Компонент карточки -->
+          <!-- 1 -->
+          <article class="flex flex-col gap-3">
+            <div class="relative rounded-xl overflow-hidden bg-card2">
+              <div class="[aspect-ratio:2/3] relative">
+                <img src="div17.png" class="absolute inset-0 w-full h-full object-cover" alt="">
+                <img src="div18.png" class="absolute inset-0 w-full h-full object-cover" alt="">
+              </div>
+              <div class="absolute inset-0 bg-ink/5"></div>
+              <div class="absolute left-2 top-3 bg-ink50/100 backdrop-blur-sm text-white text-sm px-4 py-1 rounded-full flex items-center gap-1">
+                <img src="mask-group3.svg" class="w-4 h-4" alt=""> 5,44
+              </div>
+            </div>
+            <div>
+              <div class="font-bold text-[.99rem] leading-[1.41rem] truncate">К себе нежно. Книга...</div>
+              <div class="text-muted text-[.845rem] leading-4">Алекс Ключевской<br>(Лёха) и др.</div>
+            </div>
+            <div>
+              <button class="bg-green text-white h-[1.975rem] px-3 rounded-[27.06px] text-[.845rem] font-semibold">Читать</button>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="flex flex-col gap-3">
+            <div class="relative rounded-xl overflow-hidden bg-card2">
+              <div class="[aspect-ratio:2/3] relative">
+                <img src="div22.png" class="absolute inset-0 w-full h-full object-cover" alt="">
+                <img src="div23.png" class="absolute inset-0 w-full h-full object-cover" alt="">
+              </div>
+              <div class="absolute left-2 top-3 bg-ink50/100 backdrop-blur-sm text-white text-sm px-4 py-1 rounded-full flex items-center gap-1">
+                <img src="mask-group4.svg" class="w-4 h-4" alt=""> 5,44
+              </div>
+            </div>
+            <div>
+              <div class="font-bold text-[.99rem] leading-[1.41rem] truncate">Башня тишины</div>
+              <div class="text-muted text-[.845rem] leading-4">Алекс Ключевской<br>(Лёха) и др.</div>
+            </div>
+            <button class="bg-green text-white h-[1.975rem] px-3 rounded-[27.06px] text-[.845rem] font-semibold">Читать</button>
+          </article>
+
+          <!-- …Добавь остальные карточки по образцу -->
+        </div>
+      </section>
+
+      <!-- Характеристики + Описание -->
+      <section class="mt-12 grid lg:grid-cols-12 gap-10">
+        <div class="lg:col-span-4">
+          <h3 class="text-base font-bold mb-4">Характеристики</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex gap-2"><span class="text-ink">Возрастное ограничение:</span><span class="font-semibold">18+</span></li>
+            <li class="flex gap-2"><span class="text-ink">Дата выхода:</span><span class="font-semibold">06 октября 2025</span></li>
+            <li class="flex gap-2"><span class="text-ink">Дата написания:</span><span class="font-semibold">2025</span></li>
+            <li class="flex gap-2"><span class="text-ink">Объем:</span><span class="font-semibold">210 стр. 1 иллюстрация</span></li>
+            <li class="flex gap-2"><span class="text-ink">Правообладатели:</span><span class="font-semibold">Автор, Мира Славная</span></li>
+            <li class="flex gap-2 flex-wrap">
+              <span class="text-ink">Формат скачивания:</span>
+              <span class="text-[#4e95ff]">epub, fb2, fb3, pdf, txt, zip</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-8 grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-base font-bold mb-4">Описание</h3>
+            <div class="text-sm leading-6 text-ink">
+              Устали откладывать всё на завтра? … В своей книге он подробно рассказывает, как за 30 дней приобрести 30 небольших полезных привычек…
+              <br><br>
+              – 8 шагов, чтобы не выгорать;<br>
+              – 4 совета по принципу Парето;<br>
+              – 6 способов настройки биоритмов;<br>
+              – 5 правил планирования дня.
+            </div>
+          </div>
+          <div class="rounded-2xl bg-[#f2f3f2] min-h-[18rem]"></div>
+        </div>
+      </section>
+
+      <!-- От автора -->
+      <section class="mt-12">
+        <h2 class="text-2xl md:text-[1.41rem] font-bold tracking-tight mb-6">От автора</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-7 gap-4">
+          <!-- повторяющиеся карточки автора — тот же компонент, что выше -->
+          <article class="flex flex-col gap-3">
+            <div class="relative rounded-xl overflow-hidden bg-card2">
+              <div class="[aspect-ratio:2/3] relative">
+                <img src="div67.png" class="absolute inset-0 w-full h-full object-cover" alt="">
+                <div class="absolute inset-0 bg-ink/5"></div>
+              </div>
+              <div class="absolute left-2 top-3 bg-ink50/100 backdrop-blur-sm text-white text-sm px-4 py-1 rounded-full flex items-center gap-1">
+                <img src="mask-group10.svg" class="w-4 h-4" alt=""> 5,44
+              </div>
+            </div>
+            <div>
+              <div class="font-bold text-[.99rem] leading-[1.41rem] truncate">30 привычек за 30 дне...</div>
+              <div class="text-muted text-[.845rem] leading-4">Алекс Ключевской<br>(Лёха) и др.</div>
+            </div>
+            <div class="flex items-center gap-3">
+              <button class="bg-green text-white h-[1.975rem] px-3 rounded-[27.06px] text-[.845rem] font-semibold">Читать</button>
+              <span class="text-[#afb2bf] text-sm border border-[#afb2bf80] rounded px-2 py-0.5">18+</span>
+            </div>
+          </article>
+
+          <!-- …остальные карточки по образцу -->
+        </div>
+      </section>
+
+      <!-- Отзывы -->
+      <section class="mt-12">
+        <div class="grid lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-7">
+            <div class="mb-4">
+              <h3 class="text-[2.05rem] font-bold leading-none">Отзывы <span class="text-ink/70 text-xl align-baseline">на книгу</span></h3>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="text-[3rem] leading-none">4.9</div>
+              <div>
+                <div class="flex items-center gap-1">
+                  <img src="svg0.svg" class="w-5 h-5" alt="">
+                  <img src="svg1.svg" class="w-5 h-5" alt="">
+                  <img src="svg2.svg" class="w-5 h-5" alt="">
+                  <img src="svg3.svg" class="w-5 h-5" alt="">
+                  <img src="svg4.svg" class="w-5 h-5" alt="">
+                </div>
+                <div class="text-xs text-[#8b8b8b]">5484 оценки · 1815 отзывов</div>
+              </div>
+            </div>
+
+            <!-- Один отзыв -->
+            <div class="mt-6 space-y-4">
+              <div class="flex items-start gap-3">
+                <div class="w-8 h-8 rounded-full bg-[#c5c5c5] grid place-items-center text-white text-sm">Е</div>
+                <div class="flex-1">
+                  <div class="flex items-center gap-2">
+                    <div class="flex items-center gap-0.5">
+                      <img src="svg5.svg" class="w-3.5 h-3.5" alt="">
+                      <img src="svg6.svg" class="w-3.5 h-3.5" alt="">
+                      <img src="svg7.svg" class="w-3.5 h-3.5" alt="">
+                      <img src="svg8.svg" class="w-3.5 h-3.5" alt="">
+                      <img src="svg9.svg" class="w-3.5 h-3.5" alt="">
+                    </div>
+                    <div class="text-xs text-[#8b8b8b] font-bold">New Balance NB 580</div>
+                  </div>
+                  <div class="text-xs text-[#8b8b8b]">Елена · в прошлом году</div>
+                </div>
+              </div>
+              <div class="space-y-2 text-sm">
+                <p><strong>Достоинства:</strong> яркие, заметные, удобные)</p>
+                <p><strong>Недостатки:</strong> Не понимаю, в чем проблема, полгода запах китайщины не выветривается.</p>
+                <p><strong>Комментарий:</strong> все книги этой серии написаны с юмором, легко читаются…</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl bg-[#f2f3f2] min-h-[22rem]"></div>
+          </div>
+        </div>
+
+        <button class="mt-6 w-full md:w-auto md:min-w-[20rem] mx-auto block rounded-[.64rem] border border-[#eaeaea] bg-[#f2f2f2] px-6 py-3 text-[1.02rem] font-medium">
+          Смотреть ещё
+        </button>
+      </section>
+
+      <!-- FOOTER CARD -->
+      <section class="mt-12">
+        <div class="rounded-2xl border border-[#d9e3e8] p-6 md:p-8">
+          <div class="grid md:grid-cols-3 gap-10 items-start">
+            <div>
+              <div class="flex items-center gap-2 mb-4">
+                <img src="product-icons0.svg" class="w-[2.165rem] h-[2.165rem]" alt="">
+                <div class="font-bold tracking-tight" style="font-size:1.47rem">Readlyst</div>
+              </div>
+              <p class="text-muted text-xs leading-5 max-w-[28rem]">
+                Readlyst — платформа, где собраны отзывы, описания и характеристики книг…
+              </p>
+            </div>
+            <div>
+              <div class="font-bold text-sm mb-3">О компании</div>
+              <ul class="space-y-2 text-sm text-muted">
+                <li><a href="#" class="hover:text-ink">Пользовательское соглашение</a></li>
+                <li><a href="#" class="hover:text-ink">Политика конфиденциальности</a></li>
+                <li><a href="#" class="hover:text-ink">Поддержка</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-bold text-sm mb-3">Мы в соц.сетях</div>
+              <div class="flex items-center gap-3">
+                <img src="tg-797-d-2292-svg0.svg" class="w-8 h-8" alt="Telegram">
+                <img src="vk-f-5-f-9-bacc-svg0.svg" class="w-8 h-8" alt="VK">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</body>
+</html>
